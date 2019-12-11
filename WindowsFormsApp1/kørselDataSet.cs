@@ -12,10 +12,15 @@
 
 namespace WindowsFormsApp1.kørselDataSetTableAdapters
 {
+    partial class bilTableAdapter
+    {
+    }
+
     partial class brugerTableAdapter
     {
     }
 
-    public partial class kmKørtTableAdapter {
+    public partial class kmKørtTableAdapter
+    {
     }
 }

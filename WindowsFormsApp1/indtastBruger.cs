@@ -1,38 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class indtastBruger : Form
     {
-        public string forNavnIndtast{ get; set; }
-        public string efterNavnIndtast { get; set; } 
+        public string forNavnIndtast { get; set; }
+        public string efterNavnIndtast { get; set; }
+        public string bilModel { get; set; }
+        public string nummerplade { get; set; }
+        public string fabrikant { get; set; }
         public indtastBruger()
         {
             InitializeComponent();
 
         }
 
-
-
-        private void fornavn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void efternavn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void indtastNavn_TextChanged(object sender, EventArgs e)
         {
@@ -45,14 +28,44 @@ namespace WindowsFormsApp1
             efterNavnIndtast = indtastEfternavn.Text;
         }
 
-        private void indsend_Click(object sender, EventArgs e)
+
+
+        private void indsendBruger_Click(object sender, EventArgs e)
         {
-            
-             this.forNavnIndtast = indtastNavn.Text;
-             this.efterNavnIndtast = indtastEfternavn.Text; //example
-             this.DialogResult = DialogResult.OK;
-             this.Close();
-            
+
+            this.forNavnIndtast = indtastNavn.Text;
+            this.efterNavnIndtast = indtastEfternavn.Text; 
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+        private void indsendBil_Click(object sender, EventArgs e)
+        {
+
+            this.bilModel = indtastModel.Text;
+            this.nummerplade= indtastNummerplade.Text;
+            this.fabrikant = indtastFabrikant.Text;
+
+            this.DialogResult = DialogResult.No;
+            this.Close();
+        }
+
+        private void indtastFabrikant_TextChanged(object sender, EventArgs e)
+        {
+            fabrikant = indtastFabrikant.Text;
+
+        }
+
+        private void indtastNummerplade_TextChanged(object sender, EventArgs e)
+        {
+            nummerplade = indtastNummerplade.Text;
+
+        }
+
+        private void indtastModel_TextChanged(object sender, EventArgs e)
+        {
+            bilModel = indtastModel.Text;
+
         }
     }
 }
