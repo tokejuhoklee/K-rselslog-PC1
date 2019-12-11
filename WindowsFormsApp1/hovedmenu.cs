@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -23,27 +16,42 @@ namespace WindowsFormsApp1
 
         }
 
-       
+
         public void hovedmenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'kørselDataSet2.bruger' table. You can move, or remove it, as needed.
+            this.brugerTableAdapter.Fill(this.kørselDataSet2.bruger);
+            // TODO: This line of code loads data into the 'kørselDataSet2.bil' table. You can move, or remove it, as needed.
+            this.bilTableAdapter.Fill(this.kørselDataSet2.bil);
+            // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
+            this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+            // TODO: This line of code loads data into the 'kørselDataSet1.bruger' table. You can move, or remove it, as needed.
+            this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
 
             try
             {
-               this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+                this.bilTableAdapter.Fill(this.kørselDataSet.bil);
                 this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+
             }
-            catch(Exception es) { MessageBox.Show(es.Message); }
+            catch (Exception es) { MessageBox.Show(es.Message); }
 
 
-          //  SelectedBrugerNr = Convert.ToInt32(Brugere.SelectedValue);
+
 
         }
         private void brugerValg(object sender, EventArgs e)
         {
-
-            forNavnMenu.Text = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["fornavn"]);
-            efterNavnMenu.Text = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["efternavn"]);
-            
+            try
+            {
+                if (Brugere.SelectedIndex >= 0)
+                {
+                    forNavnMenu.Text = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["fornavn"]);
+                    efterNavnMenu.Text = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["efternavn"]);
+                    kørteKm.Text = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["kørselKm"]);
+                }
+            }
+            catch (Exception es) { MessageBox.Show(es.Message); }
         }
 
 
@@ -64,8 +72,8 @@ namespace WindowsFormsApp1
 
         private void ny_bil_Click(object sender, EventArgs e)
         {
-            string fornavn="tom";
-            string efternavn="tom";
+            string fornavn = "tom";
+            string efternavn = "tom";
             using (var form = new indtastBruger())
             {
                 var result = form.ShowDialog();
@@ -137,11 +145,11 @@ namespace WindowsFormsApp1
         private void button1_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show(udskrivv);
-         
+
 
         }
 
-        
+
 
 
 
@@ -163,5 +171,35 @@ namespace WindowsFormsApp1
 
             }
         }
-    }   
+
+
+
+
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.brugerTableAdapter.FillBy(this.kørselDataSet.bruger);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.brugerTableAdapter.FillBy1(this.kørselDataSet.bruger);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+    }
 }

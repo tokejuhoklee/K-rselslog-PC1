@@ -20,9 +20,9 @@ namespace WindowsFormsApp1 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("kørselDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("kørselDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class kørselDataSet : global::System.Data.DataSet {
+    public partial class kørselDataSet1 : global::System.Data.DataSet {
         
         private bilDataTable tablebil;
         
@@ -32,15 +32,11 @@ namespace WindowsFormsApp1 {
         
         private logDataTable tablelog;
         
-        private global::System.Data.DataRelation relationFK__kmKørt__bilNr__3C69FB99;
-        
-        private global::System.Data.DataRelation relationFK__bil__kørselKm__398D8EEE;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public kørselDataSet() {
+        public kørselDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -51,7 +47,7 @@ namespace WindowsFormsApp1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected kørselDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected kørselDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -176,7 +172,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            kørselDataSet cln = ((kørselDataSet)(base.Clone()));
+            kørselDataSet1 cln = ((kørselDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -270,16 +266,14 @@ namespace WindowsFormsApp1 {
                     this.tablelog.InitVars();
                 }
             }
-            this.relationFK__kmKørt__bilNr__3C69FB99 = this.Relations["FK__kmKørt__bilNr__3C69FB99"];
-            this.relationFK__bil__kørselKm__398D8EEE = this.Relations["FK__bil__kørselKm__398D8EEE"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "kørselDataSet";
+            this.DataSetName = "kørselDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/kørselDataSet.xsd";
+            this.Namespace = "http://tempuri.org/kørselDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablebil = new bilDataTable();
@@ -290,14 +284,6 @@ namespace WindowsFormsApp1 {
             base.Tables.Add(this.tablekmKørt);
             this.tablelog = new logDataTable();
             base.Tables.Add(this.tablelog);
-            this.relationFK__kmKørt__bilNr__3C69FB99 = new global::System.Data.DataRelation("FK__kmKørt__bilNr__3C69FB99", new global::System.Data.DataColumn[] {
-                        this.tablebil.bilNrColumn}, new global::System.Data.DataColumn[] {
-                        this.tablekmKørt.bilNrColumn}, false);
-            this.Relations.Add(this.relationFK__kmKørt__bilNr__3C69FB99);
-            this.relationFK__bil__kørselKm__398D8EEE = new global::System.Data.DataRelation("FK__bil__kørselKm__398D8EEE", new global::System.Data.DataColumn[] {
-                        this.tablebruger.brugerNrColumn}, new global::System.Data.DataColumn[] {
-                        this.tablebil.kørselKmColumn}, false);
-            this.Relations.Add(this.relationFK__bil__kørselKm__398D8EEE);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -335,7 +321,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            kørselDataSet ds = new kørselDataSet();
+            kørselDataSet1 ds = new kørselDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -518,17 +504,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bilRow AddbilRow(string model, string mærke, string nummerplade, brugerRow parentbrugerRowByFK__bil__kørselKm__398D8EEE) {
+            public bilRow AddbilRow(string model, string mærke, string nummerplade, int kørselKm) {
                 bilRow rowbilRow = ((bilRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         model,
                         mærke,
                         nummerplade,
-                        null};
-                if ((parentbrugerRowByFK__bil__kørselKm__398D8EEE != null)) {
-                    columnValuesArray[4] = parentbrugerRowByFK__bil__kørselKm__398D8EEE[0];
-                }
+                        kørselKm};
                 rowbilRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbilRow);
                 return rowbilRow;
@@ -660,7 +643,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                kørselDataSet ds = new kørselDataSet();
+                kørselDataSet1 ds = new kørselDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -734,11 +717,9 @@ namespace WindowsFormsApp1 {
             
             private global::System.Data.DataColumn columnkørselKm;
             
-            private global::System.Data.DataColumn columnaktiv;
-            
-            private global::System.Data.DataColumn columnDataColumn1;
-            
             private global::System.Data.DataColumn columnsamletNavn;
+            
+            private global::System.Data.DataColumn columnaktiv;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -807,25 +788,17 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn aktivColumn {
-                get {
-                    return this.columnaktiv;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DataColumn1Column {
-                get {
-                    return this.columnDataColumn1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn samletNavnColumn {
                 get {
                     return this.columnsamletNavn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn aktivColumn {
+                get {
+                    return this.columnaktiv;
                 }
             }
             
@@ -866,16 +839,15 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public brugerRow AddbrugerRow(string fornavn, string efternavn, int kørselKm, string aktiv, string DataColumn1, string samletNavn) {
+            public brugerRow AddbrugerRow(string fornavn, string efternavn, int kørselKm, string samletNavn, bool aktiv) {
                 brugerRow rowbrugerRow = ((brugerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         fornavn,
                         efternavn,
                         kørselKm,
-                        aktiv,
-                        DataColumn1,
-                        samletNavn};
+                        samletNavn,
+                        aktiv};
                 rowbrugerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbrugerRow);
                 return rowbrugerRow;
@@ -909,9 +881,8 @@ namespace WindowsFormsApp1 {
                 this.columnfornavn = base.Columns["fornavn"];
                 this.columnefternavn = base.Columns["efternavn"];
                 this.columnkørselKm = base.Columns["kørselKm"];
-                this.columnaktiv = base.Columns["aktiv"];
-                this.columnDataColumn1 = base.Columns["DataColumn1"];
                 this.columnsamletNavn = base.Columns["samletNavn"];
+                this.columnaktiv = base.Columns["aktiv"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -925,12 +896,10 @@ namespace WindowsFormsApp1 {
                 base.Columns.Add(this.columnefternavn);
                 this.columnkørselKm = new global::System.Data.DataColumn("kørselKm", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkørselKm);
-                this.columnaktiv = new global::System.Data.DataColumn("aktiv", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaktiv);
-                this.columnDataColumn1 = new global::System.Data.DataColumn("DataColumn1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDataColumn1);
                 this.columnsamletNavn = new global::System.Data.DataColumn("samletNavn", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsamletNavn);
+                this.columnaktiv = new global::System.Data.DataColumn("aktiv", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaktiv);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnbrugerNr}, true));
                 this.columnbrugerNr.AutoIncrement = true;
@@ -1010,7 +979,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                kørselDataSet ds = new kørselDataSet();
+                kørselDataSet1 ds = new kørselDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1196,17 +1165,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kmKørtRow AddkmKørtRow(bilRow parentbilRowByFK__kmKørt__bilNr__3C69FB99, int kmKørt, string efterNavn, string adresse) {
+            public kmKørtRow AddkmKørtRow(int bilNr, int kmKørt, string efterNavn, string adresse) {
                 kmKørtRow rowkmKørtRow = ((kmKørtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
+                        bilNr,
                         kmKørt,
                         efterNavn,
                         adresse};
-                if ((parentbilRowByFK__kmKørt__bilNr__3C69FB99 != null)) {
-                    columnValuesArray[1] = parentbilRowByFK__kmKørt__bilNr__3C69FB99[0];
-                }
                 rowkmKørtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowkmKørtRow);
                 return rowkmKørtRow;
@@ -1337,7 +1303,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                kørselDataSet ds = new kørselDataSet();
+                kørselDataSet1 ds = new kørselDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1405,7 +1371,9 @@ namespace WindowsFormsApp1 {
             
             private global::System.Data.DataColumn columnhandling;
             
-            private global::System.Data.DataColumn columnkmKørt;
+            private global::System.Data.DataColumn columnkmKørtBruger;
+            
+            private global::System.Data.DataColumn columnkmKørtBil;
             
             private global::System.Data.DataColumn columnopretBruger;
             
@@ -1456,9 +1424,17 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn kmKørtColumn {
+            public global::System.Data.DataColumn kmKørtBrugerColumn {
                 get {
-                    return this.columnkmKørt;
+                    return this.columnkmKørtBruger;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn kmKørtBilColumn {
+                get {
+                    return this.columnkmKørtBil;
                 }
             }
             
@@ -1523,11 +1499,12 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public logRow AddlogRow(int kmKørt, int opretBruger, int opretBil, string opretForbindelse) {
+            public logRow AddlogRow(int kmKørtBruger, int kmKørtBil, int opretBruger, int opretBil, string opretForbindelse) {
                 logRow rowlogRow = ((logRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        kmKørt,
+                        kmKørtBruger,
+                        kmKørtBil,
                         opretBruger,
                         opretBil,
                         opretForbindelse};
@@ -1561,7 +1538,8 @@ namespace WindowsFormsApp1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnhandling = base.Columns["handling"];
-                this.columnkmKørt = base.Columns["kmKørt"];
+                this.columnkmKørtBruger = base.Columns["kmKørtBruger"];
+                this.columnkmKørtBil = base.Columns["kmKørtBil"];
                 this.columnopretBruger = base.Columns["opretBruger"];
                 this.columnopretBil = base.Columns["opretBil"];
                 this.columnopretForbindelse = base.Columns["opretForbindelse"];
@@ -1572,8 +1550,10 @@ namespace WindowsFormsApp1 {
             private void InitClass() {
                 this.columnhandling = new global::System.Data.DataColumn("handling", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhandling);
-                this.columnkmKørt = new global::System.Data.DataColumn("kmKørt", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkmKørt);
+                this.columnkmKørtBruger = new global::System.Data.DataColumn("kmKørtBruger", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkmKørtBruger);
+                this.columnkmKørtBil = new global::System.Data.DataColumn("kmKørtBil", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkmKørtBil);
                 this.columnopretBruger = new global::System.Data.DataColumn("opretBruger", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnopretBruger);
                 this.columnopretBil = new global::System.Data.DataColumn("opretBil", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1657,7 +1637,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                kørselDataSet ds = new kørselDataSet();
+                kørselDataSet1 ds = new kørselDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1784,28 +1764,6 @@ namespace WindowsFormsApp1 {
                     this[this.tablebil.kørselKmColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public brugerRow brugerRow {
-                get {
-                    return ((brugerRow)(this.GetParentRow(this.Table.ParentRelations["FK__bil__kørselKm__398D8EEE"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__bil__kørselKm__398D8EEE"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public kmKørtRow[] GetkmKørtRows() {
-                if ((this.Table.ChildRelations["FK__kmKørt__bilNr__3C69FB99"] == null)) {
-                    return new kmKørtRow[0];
-                }
-                else {
-                    return ((kmKørtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__kmKørt__bilNr__3C69FB99"])));
-                }
-            }
         }
         
         /// <summary>
@@ -1883,38 +1841,6 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string aktiv {
-                get {
-                    try {
-                        return ((string)(this[this.tablebruger.aktivColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'aktiv\' in table \'bruger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablebruger.aktivColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DataColumn1 {
-                get {
-                    try {
-                        return ((string)(this[this.tablebruger.DataColumn1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn1\' in table \'bruger\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablebruger.DataColumn1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string samletNavn {
                 get {
                     try {
@@ -1926,6 +1852,22 @@ namespace WindowsFormsApp1 {
                 }
                 set {
                     this[this.tablebruger.samletNavnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool aktiv {
+                get {
+                    try {
+                        return ((bool)(this[this.tablebruger.aktivColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'aktiv\' in table \'bruger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablebruger.aktivColumn] = value;
                 }
             }
             
@@ -1967,30 +1909,6 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsaktivNull() {
-                return this.IsNull(this.tablebruger.aktivColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetaktivNull() {
-                this[this.tablebruger.aktivColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDataColumn1Null() {
-                return this.IsNull(this.tablebruger.DataColumn1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDataColumn1Null() {
-                this[this.tablebruger.DataColumn1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IssamletNavnNull() {
                 return this.IsNull(this.tablebruger.samletNavnColumn);
             }
@@ -2003,13 +1921,14 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bilRow[] GetbilRows() {
-                if ((this.Table.ChildRelations["FK__bil__kørselKm__398D8EEE"] == null)) {
-                    return new bilRow[0];
-                }
-                else {
-                    return ((bilRow[])(base.GetChildRows(this.Table.ChildRelations["FK__bil__kørselKm__398D8EEE"])));
-                }
+            public bool IsaktivNull() {
+                return this.IsNull(this.tablebruger.aktivColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetaktivNull() {
+                this[this.tablebruger.aktivColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2081,17 +2000,6 @@ namespace WindowsFormsApp1 {
                     this[this.tablekmKørt.adresseColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bilRow bilRow {
-                get {
-                    return ((bilRow)(this.GetParentRow(this.Table.ParentRelations["FK__kmKørt__bilNr__3C69FB99"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__kmKørt__bilNr__3C69FB99"]);
-                }
-            }
         }
         
         /// <summary>
@@ -2121,17 +2029,33 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int kmKørt {
+            public int kmKørtBruger {
                 get {
                     try {
-                        return ((int)(this[this.tablelog.kmKørtColumn]));
+                        return ((int)(this[this.tablelog.kmKørtBrugerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'kmKørt\' in table \'log\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'kmKørtBruger\' in table \'log\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelog.kmKørtColumn] = value;
+                    this[this.tablelog.kmKørtBrugerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int kmKørtBil {
+                get {
+                    try {
+                        return ((int)(this[this.tablelog.kmKørtBilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'kmKørtBil\' in table \'log\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelog.kmKørtBilColumn] = value;
                 }
             }
             
@@ -2180,14 +2104,26 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IskmKørtNull() {
-                return this.IsNull(this.tablelog.kmKørtColumn);
+            public bool IskmKørtBrugerNull() {
+                return this.IsNull(this.tablelog.kmKørtBrugerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetkmKørtNull() {
-                this[this.tablelog.kmKørtColumn] = global::System.Convert.DBNull;
+            public void SetkmKørtBrugerNull() {
+                this[this.tablelog.kmKørtBrugerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IskmKørtBilNull() {
+                return this.IsNull(this.tablelog.kmKørtBilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetkmKørtBilNull() {
+                this[this.tablelog.kmKørtBilColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2352,7 +2288,7 @@ namespace WindowsFormsApp1 {
         }
     }
 }
-namespace WindowsFormsApp1.kørselDataSetTableAdapters {
+namespace WindowsFormsApp1.kørselDataSet1TableAdapters {
     
     
     /// <summary>
@@ -2541,7 +2477,7 @@ SELECT bilNr, model, mærke, nummerplade, kørselKm FROM bil WHERE (bilNr = @bil
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(kørselDataSet.bilDataTable dataTable) {
+        public virtual int Fill(kørselDataSet1.bilDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2554,9 +2490,9 @@ SELECT bilNr, model, mærke, nummerplade, kørselKm FROM bil WHERE (bilNr = @bil
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual kørselDataSet.bilDataTable GetData() {
+        public virtual kørselDataSet1.bilDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            kørselDataSet.bilDataTable dataTable = new kørselDataSet.bilDataTable();
+            kørselDataSet1.bilDataTable dataTable = new kørselDataSet1.bilDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2564,14 +2500,14 @@ SELECT bilNr, model, mærke, nummerplade, kørselKm FROM bil WHERE (bilNr = @bil
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet.bilDataTable dataTable) {
+        public virtual int Update(kørselDataSet1.bilDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet dataSet) {
+        public virtual int Update(kørselDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "bil");
         }
         
@@ -2867,10 +2803,11 @@ SELECT bilNr, model, mærke, nummerplade, kørselKm FROM bil WHERE (bilNr = @bil
             tableMapping.ColumnMappings.Add("efternavn", "efternavn");
             tableMapping.ColumnMappings.Add("kørselKm", "kørselKm");
             tableMapping.ColumnMappings.Add("samletNavn", "samletNavn");
+            tableMapping.ColumnMappings.Add("aktiv", "aktiv");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [bruger] WHERE (([brugerNr] = @Original_brugerNr) AND ((@IsNull_fornavn = 1 AND [fornavn] IS NULL) OR ([fornavn] = @Original_fornavn)) AND ((@IsNull_efternavn = 1 AND [efternavn] IS NULL) OR ([efternavn] = @Original_efternavn)) AND ((@IsNull_kørselKm = 1 AND [kørselKm] IS NULL) OR ([kørselKm] = @Original_kørselKm)) AND ([samletNavn] = @Original_samletNavn))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[bruger] WHERE (([brugerNr] = @Original_brugerNr) AND ((@IsNull_fornavn = 1 AND [fornavn] IS NULL) OR ([fornavn] = @Original_fornavn)) AND ((@IsNull_efternavn = 1 AND [efternavn] IS NULL) OR ([efternavn] = @Original_efternavn)) AND ((@IsNull_kørselKm = 1 AND [kørselKm] IS NULL) OR ([kørselKm] = @Original_kørselKm)) AND ([samletNavn] = @Original_samletNavn) AND ((@IsNull_aktiv = 1 AND [aktiv] IS NULL) OR ([aktiv] = @Original_aktiv)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_brugerNr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "brugerNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fornavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fornavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2880,23 +2817,27 @@ SELECT bilNr, model, mærke, nummerplade, kørselKm FROM bil WHERE (bilNr = @bil
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_samletNavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "samletNavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_aktiv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_aktiv", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [bruger] ([fornavn], [efternavn], [kørselKm]) VALUES (@fornavn, @efte" +
-                "rnavn, @kørselKm);\r\nSELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FR" +
-                "OM bruger WHERE (brugerNr = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[bruger] ([fornavn], [efternavn], [kørselKm], [aktiv]) VALUES (" +
+                "@fornavn, @efternavn, @kørselKm, @aktiv);\r\nSELECT brugerNr, fornavn, efternavn, " +
+                "kørselKm, samletNavn, aktiv FROM bruger WHERE (brugerNr = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fornavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fornavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@efternavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "efternavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@aktiv", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [bruger] SET [fornavn] = @fornavn, [efternavn] = @efternavn, [kørselKm] = @kørselKm WHERE (([brugerNr] = @Original_brugerNr) AND ((@IsNull_fornavn = 1 AND [fornavn] IS NULL) OR ([fornavn] = @Original_fornavn)) AND ((@IsNull_efternavn = 1 AND [efternavn] IS NULL) OR ([efternavn] = @Original_efternavn)) AND ((@IsNull_kørselKm = 1 AND [kørselKm] IS NULL) OR ([kørselKm] = @Original_kørselKm)) AND ([samletNavn] = @Original_samletNavn));
-SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (brugerNr = @brugerNr)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[bruger] SET [fornavn] = @fornavn, [efternavn] = @efternavn, [kørselKm] = @kørselKm, [aktiv] = @aktiv WHERE (([brugerNr] = @Original_brugerNr) AND ((@IsNull_fornavn = 1 AND [fornavn] IS NULL) OR ([fornavn] = @Original_fornavn)) AND ((@IsNull_efternavn = 1 AND [efternavn] IS NULL) OR ([efternavn] = @Original_efternavn)) AND ((@IsNull_kørselKm = 1 AND [kørselKm] IS NULL) OR ([kørselKm] = @Original_kørselKm)) AND ([samletNavn] = @Original_samletNavn) AND ((@IsNull_aktiv = 1 AND [aktiv] IS NULL) OR ([aktiv] = @Original_aktiv)));
+SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn, aktiv FROM bruger WHERE (brugerNr = @brugerNr)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fornavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fornavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@efternavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "efternavn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@aktiv", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_brugerNr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "brugerNr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_fornavn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fornavn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fornavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fornavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2905,6 +2846,8 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kørselKm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kørselKm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_samletNavn", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "samletNavn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_aktiv", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_aktiv", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "aktiv", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@brugerNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "brugerNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2918,36 +2861,18 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger";
+            this._commandCollection[0].CommandText = "SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn, aktiv FROM dbo.bruger";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT brugerNr, efternavn, fornavn, kørselKm, samletNavn FROM bruger";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT brugerNr, efternavn, fornavn, kørselKm, samletNavn FROM bruger";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT brugerNr, efternavn, fornavn, kørselKm, samletNavn FROM bruger WHERE (brug" +
-                "erNr = @BrugerNr)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BrugerNr", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "brugerNr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT        fornavn + \' \' + efternavn AS samletnavn\r\nFROM            bruger";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(kørselDataSet.brugerDataTable dataTable) {
+        public virtual int Fill(kørselDataSet1.brugerDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2960,9 +2885,9 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual kørselDataSet.brugerDataTable GetData() {
+        public virtual kørselDataSet1.brugerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            kørselDataSet.brugerDataTable dataTable = new kørselDataSet.brugerDataTable();
+            kørselDataSet1.brugerDataTable dataTable = new kørselDataSet1.brugerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2970,66 +2895,14 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(kørselDataSet.brugerDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(kørselDataSet.brugerDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBrugerNr(kørselDataSet.brugerDataTable dataTable, int BrugerNr) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(BrugerNr));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual kørselDataSet.brugerDataTable GetDataByBrugerNr(int BrugerNr) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(BrugerNr));
-            kørselDataSet.brugerDataTable dataTable = new kørselDataSet.brugerDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet.brugerDataTable dataTable) {
+        public virtual int Update(kørselDataSet1.brugerDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet dataSet) {
+        public virtual int Update(kørselDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "bruger");
         }
         
@@ -3052,7 +2925,7 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn) {
+        public virtual int Delete(int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn, global::System.Nullable<bool> Original_aktiv) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_brugerNr));
             if ((Original_fornavn == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -3084,6 +2957,14 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_samletNavn));
             }
+            if ((Original_aktiv.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_aktiv.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3104,7 +2985,7 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string fornavn, string efternavn, global::System.Nullable<int> kørselKm) {
+        public virtual int Insert(string fornavn, string efternavn, global::System.Nullable<int> kørselKm, global::System.Nullable<bool> aktiv) {
             if ((fornavn == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3122,6 +3003,12 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((aktiv.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(aktiv.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3143,7 +3030,7 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string fornavn, string efternavn, global::System.Nullable<int> kørselKm, int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn, int brugerNr) {
+        public virtual int Update(string fornavn, string efternavn, global::System.Nullable<int> kørselKm, global::System.Nullable<bool> aktiv, int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn, global::System.Nullable<bool> Original_aktiv, int brugerNr) {
             if ((fornavn == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3162,38 +3049,52 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_brugerNr));
-            if ((Original_fornavn == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((aktiv.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(aktiv.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_fornavn));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_brugerNr));
+            if ((Original_fornavn == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_fornavn));
             }
             if ((Original_efternavn == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_efternavn));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_efternavn));
             }
             if ((Original_kørselKm.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_kørselKm.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_kørselKm.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_samletNavn == null)) {
                 throw new global::System.ArgumentNullException("Original_samletNavn");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_samletNavn));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_samletNavn));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(brugerNr));
+            if ((Original_aktiv.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Original_aktiv.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(brugerNr));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3214,36 +3115,8 @@ SELECT brugerNr, fornavn, efternavn, kørselKm, samletNavn FROM bruger WHERE (br
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string fornavn, string efternavn, global::System.Nullable<int> kørselKm, int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn) {
-            return this.Update(fornavn, efternavn, kørselKm, Original_brugerNr, Original_fornavn, Original_efternavn, Original_kørselKm, Original_samletNavn, Original_brugerNr);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object name() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
+        public virtual int Update(string fornavn, string efternavn, global::System.Nullable<int> kørselKm, global::System.Nullable<bool> aktiv, int Original_brugerNr, string Original_fornavn, string Original_efternavn, global::System.Nullable<int> Original_kørselKm, string Original_samletNavn, global::System.Nullable<bool> Original_aktiv) {
+            return this.Update(fornavn, efternavn, kørselKm, aktiv, Original_brugerNr, Original_fornavn, Original_efternavn, Original_kørselKm, Original_samletNavn, Original_aktiv, Original_brugerNr);
         }
     }
     
@@ -3433,7 +3306,7 @@ SELECT bilNrOprettet, bilNr, kmKørt, efterNavn, adresse FROM kmKørt WHERE (bil
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(kørselDataSet.kmKørtDataTable dataTable) {
+        public virtual int Fill(kørselDataSet1.kmKørtDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3446,9 +3319,9 @@ SELECT bilNrOprettet, bilNr, kmKørt, efterNavn, adresse FROM kmKørt WHERE (bil
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual kørselDataSet.kmKørtDataTable GetData() {
+        public virtual kørselDataSet1.kmKørtDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            kørselDataSet.kmKørtDataTable dataTable = new kørselDataSet.kmKørtDataTable();
+            kørselDataSet1.kmKørtDataTable dataTable = new kørselDataSet1.kmKørtDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3456,14 +3329,14 @@ SELECT bilNrOprettet, bilNr, kmKørt, efterNavn, adresse FROM kmKørt WHERE (bil
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet.kmKørtDataTable dataTable) {
+        public virtual int Update(kørselDataSet1.kmKørtDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet dataSet) {
+        public virtual int Update(kørselDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "kmKørt");
         }
         
@@ -3735,18 +3608,21 @@ SELECT bilNrOprettet, bilNr, kmKørt, efterNavn, adresse FROM kmKørt WHERE (bil
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "log";
             tableMapping.ColumnMappings.Add("handling", "handling");
-            tableMapping.ColumnMappings.Add("kmKørt", "kmKørt");
+            tableMapping.ColumnMappings.Add("kmKørtBruger", "kmKørtBruger");
+            tableMapping.ColumnMappings.Add("kmKørtBil", "kmKørtBil");
             tableMapping.ColumnMappings.Add("opretBruger", "opretBruger");
             tableMapping.ColumnMappings.Add("opretBil", "opretBil");
             tableMapping.ColumnMappings.Add("opretForbindelse", "opretForbindelse");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[log] WHERE (([handling] = @Original_handling) AND ((@IsNull_kmKørt = 1 AND [kmKørt] IS NULL) OR ([kmKørt] = @Original_kmKørt)) AND ((@IsNull_opretBruger = 1 AND [opretBruger] IS NULL) OR ([opretBruger] = @Original_opretBruger)) AND ((@IsNull_opretBil = 1 AND [opretBil] IS NULL) OR ([opretBil] = @Original_opretBil)) AND ([opretForbindelse] = @Original_opretForbindelse))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[log] WHERE (([handling] = @Original_handling) AND ((@IsNull_kmKørtBruger = 1 AND [kmKørtBruger] IS NULL) OR ([kmKørtBruger] = @Original_kmKørtBruger)) AND ((@IsNull_kmKørtBil = 1 AND [kmKørtBil] IS NULL) OR ([kmKørtBil] = @Original_kmKørtBil)) AND ((@IsNull_opretBruger = 1 AND [opretBruger] IS NULL) OR ([opretBruger] = @Original_opretBruger)) AND ((@IsNull_opretBil = 1 AND [opretBil] IS NULL) OR ([opretBil] = @Original_opretBil)) AND ([opretForbindelse] = @Original_opretForbindelse))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_handling", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "handling", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_opretBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3754,25 +3630,29 @@ SELECT bilNrOprettet, bilNr, kmKørt, efterNavn, adresse FROM kmKørt WHERE (bil
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_opretForbindelse", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretForbindelse", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[log] ([kmKørt], [opretBruger], [opretBil], [opretForbindelse]) VALUES (@kmKørt, @opretBruger, @opretBil, @opretForbindelse);
-SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHERE (handling = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[log] ([kmKørtBruger], [kmKørtBil], [opretBruger], [opretBil], [opretForbindelse]) VALUES (@kmKørtBruger, @kmKørtBil, @opretBruger, @opretBil, @opretForbindelse);
+SELECT handling, kmKørtBruger, kmKørtBil, opretBruger, opretBil, opretForbindelse FROM [log] WHERE (handling = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretForbindelse", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretForbindelse", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[log] SET [kmKørt] = @kmKørt, [opretBruger] = @opretBruger, [opretBil] = @opretBil, [opretForbindelse] = @opretForbindelse WHERE (([handling] = @Original_handling) AND ((@IsNull_kmKørt = 1 AND [kmKørt] IS NULL) OR ([kmKørt] = @Original_kmKørt)) AND ((@IsNull_opretBruger = 1 AND [opretBruger] IS NULL) OR ([opretBruger] = @Original_opretBruger)) AND ((@IsNull_opretBil = 1 AND [opretBil] IS NULL) OR ([opretBil] = @Original_opretBil)) AND ([opretForbindelse] = @Original_opretForbindelse));
-SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHERE (handling = @handling)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[log] SET [kmKørtBruger] = @kmKørtBruger, [kmKørtBil] = @kmKørtBil, [opretBruger] = @opretBruger, [opretBil] = @opretBil, [opretForbindelse] = @opretForbindelse WHERE (([handling] = @Original_handling) AND ((@IsNull_kmKørtBruger = 1 AND [kmKørtBruger] IS NULL) OR ([kmKørtBruger] = @Original_kmKørtBruger)) AND ((@IsNull_kmKørtBil = 1 AND [kmKørtBil] IS NULL) OR ([kmKørtBil] = @Original_kmKørtBil)) AND ((@IsNull_opretBruger = 1 AND [opretBruger] IS NULL) OR ([opretBruger] = @Original_opretBruger)) AND ((@IsNull_opretBil = 1 AND [opretBil] IS NULL) OR ([opretBil] = @Original_opretBil)) AND ([opretForbindelse] = @Original_opretForbindelse));
+SELECT handling, kmKørtBruger, kmKørtBil, opretBruger, opretBil, opretForbindelse FROM [log] WHERE (handling = @handling)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBil", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@opretForbindelse", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretForbindelse", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_handling", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "handling", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørtBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBruger", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_kmKørtBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "kmKørtBil", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_opretBruger", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBruger", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_opretBil", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "opretBil", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3794,7 +3674,8 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM dbo.[log]";
+            this._commandCollection[0].CommandText = "SELECT handling, kmKørtBruger, kmKørtBil, opretBruger, opretBil, opretForbindelse" +
+                " FROM dbo.[log]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3802,7 +3683,7 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(kørselDataSet.logDataTable dataTable) {
+        public virtual int Fill(kørselDataSet1.logDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3815,9 +3696,9 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual kørselDataSet.logDataTable GetData() {
+        public virtual kørselDataSet1.logDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            kørselDataSet.logDataTable dataTable = new kørselDataSet.logDataTable();
+            kørselDataSet1.logDataTable dataTable = new kørselDataSet1.logDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3825,14 +3706,14 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet.logDataTable dataTable) {
+        public virtual int Update(kørselDataSet1.logDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(kørselDataSet dataSet) {
+        public virtual int Update(kørselDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "log");
         }
         
@@ -3855,37 +3736,45 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_handling, global::System.Nullable<int> Original_kmKørt, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse) {
+        public virtual int Delete(int Original_handling, global::System.Nullable<int> Original_kmKørtBruger, global::System.Nullable<int> Original_kmKørtBil, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_handling));
-            if ((Original_kmKørt.HasValue == true)) {
+            if ((Original_kmKørtBruger.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_kmKørt.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_kmKørtBruger.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_opretBruger.HasValue == true)) {
+            if ((Original_kmKørtBil.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_opretBruger.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_kmKørtBil.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_opretBil.HasValue == true)) {
+            if ((Original_opretBruger.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_opretBil.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_opretBruger.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_opretBil.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_opretBil.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             if ((Original_opretForbindelse == null)) {
                 throw new global::System.ArgumentNullException("Original_opretForbindelse");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_opretForbindelse));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_opretForbindelse));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3907,30 +3796,36 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> kmKørt, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse) {
-            if ((kmKørt.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(kmKørt.Value));
+        public virtual int Insert(global::System.Nullable<int> kmKørtBruger, global::System.Nullable<int> kmKørtBil, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse) {
+            if ((kmKørtBruger.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(kmKørtBruger.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((opretBruger.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(opretBruger.Value));
+            if ((kmKørtBil.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(kmKørtBil.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((opretBil.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(opretBil.Value));
+            if ((opretBruger.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(opretBruger.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((opretBil.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(opretBil.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((opretForbindelse == null)) {
                 throw new global::System.ArgumentNullException("opretForbindelse");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(opretForbindelse));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(opretForbindelse));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3952,63 +3847,77 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> kmKørt, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse, int Original_handling, global::System.Nullable<int> Original_kmKørt, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse, int handling) {
-            if ((kmKørt.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(kmKørt.Value));
+        public virtual int Update(global::System.Nullable<int> kmKørtBruger, global::System.Nullable<int> kmKørtBil, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse, int Original_handling, global::System.Nullable<int> Original_kmKørtBruger, global::System.Nullable<int> Original_kmKørtBil, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse, int handling) {
+            if ((kmKørtBruger.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(kmKørtBruger.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((opretBruger.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(opretBruger.Value));
+            if ((kmKørtBil.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(kmKørtBil.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((opretBil.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(opretBil.Value));
+            if ((opretBruger.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(opretBruger.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((opretBil.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(opretBil.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((opretForbindelse == null)) {
                 throw new global::System.ArgumentNullException("opretForbindelse");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(opretForbindelse));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(opretForbindelse));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_handling));
-            if ((Original_kmKørt.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_kmKørt.Value));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_handling));
+            if ((Original_kmKørtBruger.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_kmKørtBruger.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_kmKørtBil.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_kmKørtBil.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_opretBruger.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_opretBruger.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_opretBruger.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_opretBil.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_opretBil.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_opretBil.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_opretForbindelse == null)) {
                 throw new global::System.ArgumentNullException("Original_opretForbindelse");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_opretForbindelse));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_opretForbindelse));
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(handling));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(handling));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4029,8 +3938,8 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> kmKørt, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse, int Original_handling, global::System.Nullable<int> Original_kmKørt, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse) {
-            return this.Update(kmKørt, opretBruger, opretBil, opretForbindelse, Original_handling, Original_kmKørt, Original_opretBruger, Original_opretBil, Original_opretForbindelse, Original_handling);
+        public virtual int Update(global::System.Nullable<int> kmKørtBruger, global::System.Nullable<int> kmKørtBil, global::System.Nullable<int> opretBruger, global::System.Nullable<int> opretBil, string opretForbindelse, int Original_handling, global::System.Nullable<int> Original_kmKørtBruger, global::System.Nullable<int> Original_kmKørtBil, global::System.Nullable<int> Original_opretBruger, global::System.Nullable<int> Original_opretBil, string Original_opretForbindelse) {
+            return this.Update(kmKørtBruger, kmKørtBil, opretBruger, opretBil, opretForbindelse, Original_handling, Original_kmKørtBruger, Original_kmKørtBil, Original_opretBruger, Original_opretBil, Original_opretForbindelse, Original_handling);
         }
     }
     
@@ -4194,23 +4103,23 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(kørselDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(kørselDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._brugerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bruger.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._brugerTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._bilTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.bil.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._bilTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._brugerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.bruger.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._brugerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4240,21 +4149,21 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(kørselDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(kørselDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._brugerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bruger.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._brugerTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._bilTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.bil.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._bilTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._brugerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.bruger.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._brugerTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4282,7 +4191,7 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(kørselDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(kørselDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._logTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.log.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -4300,19 +4209,19 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bilTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bil.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bilTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._brugerTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.bruger.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._brugerTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._bilTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.bil.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bilTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4348,7 +4257,7 @@ SELECT handling, kmKørt, opretBruger, opretBil, opretForbindelse FROM [log] WHE
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(kørselDataSet dataSet) {
+        public virtual int UpdateAll(kørselDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
