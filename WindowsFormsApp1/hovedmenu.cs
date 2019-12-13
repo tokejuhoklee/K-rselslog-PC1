@@ -6,7 +6,7 @@ namespace WindowsFormsApp1
 {
     public partial class hovedmenu : Form
     {
-        String credentials = "server=TAK;Initial Catalog=kørsel;User ID=bruger;Password = stop;MultipleActiveResultSets=true";
+        String credentials = "server=TAK;Initial Catalog=kørsel;User ID=bruger;Password = stop;";
         int valgtBil;
         int valgtBruger;
         public hovedmenu()
@@ -21,9 +21,9 @@ namespace WindowsFormsApp1
             // TODO: This line of code loads data into the 'kørselDataSet2.bruger' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'kørselDataSet2.bil' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
-            this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+           // this.bilTableAdapter.Fill(this.kørselDataSet.bil);
             // TODO: This line of code loads data into the 'kørselDataSet1.bruger' table. You can move, or remove it, as needed.
-            this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+         //   this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
 
             try
             {
@@ -39,13 +39,22 @@ namespace WindowsFormsApp1
         }
         private void brugerValg(object sender, EventArgs e)
         {
+
+
             try
             {
-                if (Brugere.SelectedIndex >= 0)
+                if (Brugere.SelectedIndex > 0)
                 {
                     forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["fornavn"]);
                     efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["efternavn"]);
                     kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["kmKørt"]);
+
+                }
+                if (Brugere.SelectedIndex == 0)
+                {
+                    forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["fornavn"]);
+                    efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["efternavn"]);
+                    kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["kmKørt"]);
 
                 }
             }
@@ -53,7 +62,26 @@ namespace WindowsFormsApp1
             catch (Exception es) { MessageBox.Show(es.Message); }
         
         }
+        private void bilValg(object sender, EventArgs e)
+        {
 
+            this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+
+            try
+            {
+
+                if (bil.SelectedIndex > 0)
+                {
+                    bilfabrikantNavn.Text = "Mærke:              " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["mærke"]);
+                    modelNavn.Text = "Model:                " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["model"]);
+                    nummerpladeNavn.Text = "Nummerplade:    " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["nummerplade"]);
+                    kmKørtBilLabel.Text = "Kilometer kørt:    " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]);
+
+                }
+
+            }
+            catch (Exception es) { MessageBox.Show(es.Message); }
+        }
 
         private void redigering_Click(object sender, EventArgs e)
         {
@@ -79,10 +107,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void ShowMyMessage(object sender, EventArgs e)
-        {
-            MessageBox.Show("This is my message");
-        }
+
 
         private void ny_bil_Click(object sender, EventArgs e)
         {
@@ -129,7 +154,7 @@ namespace WindowsFormsApp1
                     this.bilTableAdapter.Fill(this.kørselDataSet.bil);
                     connect.Dispose();
 
-                  
+
                 }
             }
 
@@ -141,20 +166,39 @@ namespace WindowsFormsApp1
 
         private void KM_input_Click(object sender, EventArgs e)
         {
-            int insert = Convert.ToInt32(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
+            int tempbruger;
+            int tempbil;
+            int insertBruger = Convert.ToInt32(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
+            int insertBil = Convert.ToInt32(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
             SqlConnection connect = new SqlConnection(credentials);
-            SqlCommand cmd = new SqlCommand("UPDATE bruger SET kmKørt = (@value) WHERE brugerNr = @brugervalg;", connect);
-            SqlCommand cmd1 = new SqlCommand("UPDATE bil SET kmKørt = (@value) WHERE bilNr = @bilvalg;", connect);
-            cmd.Parameters.AddWithValue("@value", insert);
-            cmd1.Parameters.AddWithValue("@value", Convert.ToInt32(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text));
+            SqlCommand cmd = new SqlCommand("UPDATE bruger SET kmKørt = @value WHERE brugerNr = @brugervalg;", connect);
+            SqlCommand cmd1 = new SqlCommand("UPDATE bil SET kmKørt = @value WHERE bilNr = @bilvalg;", connect);
+            cmd.Parameters.AddWithValue("@value", insertBruger);
+            cmd1.Parameters.AddWithValue("@value", insertBil);
 
-            cmd.Parameters.AddWithValue("@brugervalg", Convert.ToInt32(Brugere.SelectedIndex));
-            cmd1.Parameters.AddWithValue("@bilvalg", Convert.ToInt32(bil.SelectedIndex));
+            cmd.Parameters.AddWithValue("@brugervalg", Convert.ToInt32(Brugere.SelectedIndex+1));
+            cmd1.Parameters.AddWithValue("@bilvalg", Convert.ToInt32(bil.SelectedIndex+1));
+            tempbruger = Convert.ToInt32(Brugere.SelectedIndex + 1);
+            tempbil = Convert.ToInt32(bil.SelectedIndex + 1);
+            try
+            {
+                connect.Open();
+                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                connect.Dispose();
+            }
+            catch (Exception es) { MessageBox.Show(es.Message); }
 
-            connect.Open();
-            cmd.ExecuteNonQuery();
-            cmd1.ExecuteNonQuery();
-            connect.Dispose();
+            try
+            {
+               this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+               this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+               Brugere.SelectedIndex = tempbruger -1;
+               bil.SelectedIndex = tempbil-1;   
+                
+            }
+            catch (Exception es) { MessageBox.Show(es.Message); }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -211,21 +255,7 @@ namespace WindowsFormsApp1
 
             }
         }
-        private void bilValg(object sender, EventArgs e)
-        {
-            try
-            {
-                if (bil.SelectedIndex >= 0)
-                {
-                    bilfabrikantNavn.Text = "Mærke:              " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["mærke"]);
-                    modelNavn.Text = "Model:                " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["model"]);
-                    nummerpladeNavn.Text = "Nummerplade:    " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["nummerplade"]);
-                    kmKørtBilLabel.Text = "Kilometer kørt:    " + Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]);
-
-                }
-            }
-            catch (Exception es) { MessageBox.Show(es.Message); }
-        }
+    
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

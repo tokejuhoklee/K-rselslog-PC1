@@ -102,7 +102,7 @@
             this.Log.Text = "Log";
             this.Log.UseVisualStyleBackColor = true;
             this.Log.Click += new System.EventHandler(this.oversigt_Click);
-            this.Log.MouseHover += new System.EventHandler(this.ShowMyMessage);
+            this.Log.MouseHover += new System.EventHandler(this.bilValg);
             // 
             // redigering
             // 
@@ -212,6 +212,7 @@
             this.Aktiv.Name = "Aktiv";
             this.Aktiv.Size = new System.Drawing.Size(31, 13);
             this.Aktiv.TabIndex = 5;
+            this.Aktiv.TabStop = true;
             this.Aktiv.Text = "Aktiv";
             // 
             // kørteKm
