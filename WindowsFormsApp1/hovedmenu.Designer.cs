@@ -146,7 +146,6 @@
             this.Brugere.UseTabStops = false;
             this.Brugere.ValueMember = "brugerNr";
             this.Brugere.SelectedIndexChanged += new System.EventHandler(this.brugerValg);
-            this.Brugere.DataSourceChanged += new System.EventHandler(this.Brugere_DataSourceChanged);
             // 
             // brugerBindingSource
             // 
@@ -307,7 +306,6 @@
             this.bil.Size = new System.Drawing.Size(185, 303);
             this.bil.TabIndex = 3;
             this.bil.SelectedIndexChanged += new System.EventHandler(this.bilValg);
-            this.bil.DataSourceChanged += new System.EventHandler(this.Brugere_DataSourceChanged);
             // 
             // bilBindingSource
             // 
