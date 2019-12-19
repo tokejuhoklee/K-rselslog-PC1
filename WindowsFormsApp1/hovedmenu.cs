@@ -93,7 +93,29 @@ namespace WindowsFormsApp1
 
         private void redigering_Click(object sender, EventArgs e)
         {
+            using (var form = new Redigering())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    //fornavn = form.forNavnIndtast;
+                    //efternavn = form.efterNavnIndtast;
 
+                    //SqlConnection connect = new SqlConnection(credentials);
+                    //SqlCommand cmd = new SqlCommand("INSERT INTO bruger (fornavn,efternavn,kmKørt,aktiv) VALUES (@fornavn, @efternavn,@kmKørt,(1))", connect);
+                    //cmd.Parameters.AddWithValue("@fornavn", fornavn);
+                    //cmd.Parameters.AddWithValue("@efternavn", efternavn);
+                    //cmd.Parameters.AddWithValue("@kmKørt", 0);
+
+
+                    //connect.Open();
+                    //cmd.ExecuteNonQuery();
+                    //this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+                    //connect.Dispose();
+
+                }
+
+            }
         }
         private void update()
         {
@@ -105,9 +127,7 @@ namespace WindowsFormsApp1
         private void oversigt_Click(object sender, EventArgs e)
         {
 
-
         }
-
 
 
         private void ny_bil_Click(object sender, EventArgs e)
@@ -285,7 +305,13 @@ namespace WindowsFormsApp1
         }
 
 
-        public void nyLog()
+
+
+
+
+
+
+        public void nyLogBilOpret()
         {
             SqlConnection connect = new SqlConnection(credentials);
             DateTime dateTimeVariable = DateTime.Now;
@@ -298,7 +324,48 @@ namespace WindowsFormsApp1
             connect.Open();
             cmd.ExecuteNonQuery();
             connect.Dispose();
-
+        }
+        public void nyLogBrugerOpret()
+        {
+            SqlConnection connect = new SqlConnection(credentials);
+            DateTime dateTimeVariable = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("INSERT INTO log (kmKørtBruger,kmKørtBil,opretBruger,opretBil,opretForbindelse) VALUES (kmKørtBruger,kmKørtBil,opretBruger,opretBil,@tid)", connect);
+            cmd.Parameters.AddWithValue("@kmKørtBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@kmKørtBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@tid", dateTimeVariable);
+            connect.Open();
+            cmd.ExecuteNonQuery();
+            connect.Dispose();
+        }
+        public void nyLogKmKørt()
+        {
+            SqlConnection connect = new SqlConnection(credentials);
+            DateTime dateTimeVariable = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("INSERT INTO log (kmKørtBruger,kmKørtBil,opretBruger,opretBil,opretForbindelse) VALUES (kmKørtBruger,kmKørtBil,opretBruger,opretBil,@tid)", connect);
+            cmd.Parameters.AddWithValue("@kmKørtBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@kmKørtBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@tid", dateTimeVariable);
+            connect.Open();
+            cmd.ExecuteNonQuery();
+            connect.Dispose();
+        }
+        public void nyLogRedigering()
+        {
+            SqlConnection connect = new SqlConnection(credentials);
+            DateTime dateTimeVariable = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("INSERT INTO log (kmKørtBruger,kmKørtBil,opretBruger,opretBil,opretForbindelse) VALUES (kmKørtBruger,kmKørtBil,opretBruger,opretBil,@tid)", connect);
+            cmd.Parameters.AddWithValue("@kmKørtBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@kmKørtBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBruger", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@opretBil", dateTimeVariable);
+            cmd.Parameters.AddWithValue("@tid", dateTimeVariable);
+            connect.Open();
+            cmd.ExecuteNonQuery();
+            connect.Dispose();
         }
     }
 }
