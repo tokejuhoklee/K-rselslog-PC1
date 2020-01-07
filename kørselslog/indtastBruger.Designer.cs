@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace kørselslog
 {
     partial class indtastBruger
     {

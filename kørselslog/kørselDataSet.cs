@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace kørselslog
 {
 
 
@@ -10,7 +10,7 @@
     }
 }
 
-namespace WindowsFormsApp1.kørselDataSetTableAdapters
+namespace kørselslog.kørselDataSetTableAdapters
 {
     partial class bilTableAdapter
     {

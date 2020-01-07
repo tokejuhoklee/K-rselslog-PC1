@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace kørselslog
 {
     partial class hovedmenu
     {
@@ -33,12 +33,9 @@
             this.opretBilBruger = new System.Windows.Forms.Button();
             this.Log = new System.Windows.Forms.Button();
             this.redigering = new System.Windows.Forms.Button();
-            this.forbind = new System.Windows.Forms.Button();
-            this.udskriv = new System.Windows.Forms.Button();
             this.Brugere = new System.Windows.Forms.ListBox();
             this.brugerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kørselDataSet = new WindowsFormsApp1.kørselDataSet();
-            this.sletadata = new System.Windows.Forms.Button();
+            this.kørselDataSet = new kørselslog.kørselDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Aktiv = new System.Windows.Forms.LinkLabel();
@@ -54,10 +51,11 @@
             this.bil = new System.Windows.Forms.ListBox();
             this.bilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kmIndtast = new System.Windows.Forms.TextBox();
-            this.kmKørtTableAdapter1 = new WindowsFormsApp1.kørselDataSetTableAdapters.kmKørtTableAdapter();
-            this.brugerTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.brugerTableAdapter();
-            this.kørselDataSet2 = new WindowsFormsApp1.kørselDataSet();
-            this.bilTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.bilTableAdapter();
+            this.kmKørtTableAdapter1 = new kørselslog.kørselDataSetTableAdapters.kmKørtTableAdapter();
+            this.brugerTableAdapter = new kørselslog.kørselDataSetTableAdapters.brugerTableAdapter();
+            this.bilTableAdapter = new kørselslog.kørselDataSetTableAdapters.bilTableAdapter();
+            this.toggleInaktiv = new System.Windows.Forms.CheckBox();
+            this.test = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -67,13 +65,13 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // kmInput
             // 
             this.kmInput.AccessibleDescription = "";
-            this.kmInput.Location = new System.Drawing.Point(6, 251);
+            this.kmInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.kmInput.Location = new System.Drawing.Point(6, 292);
             this.kmInput.Name = "kmInput";
             this.kmInput.Size = new System.Drawing.Size(189, 59);
             this.kmInput.TabIndex = 2;
@@ -83,6 +81,7 @@
             // 
             // opretBilBruger
             // 
+            this.opretBilBruger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.opretBilBruger.ForeColor = System.Drawing.SystemColors.ControlText;
             this.opretBilBruger.Location = new System.Drawing.Point(12, 379);
             this.opretBilBruger.Name = "opretBilBruger";
@@ -95,17 +94,18 @@
             // 
             // Log
             // 
+            this.Log.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Log.Location = new System.Drawing.Point(607, 379);
             this.Log.Name = "Log";
             this.Log.Size = new System.Drawing.Size(189, 59);
             this.Log.TabIndex = 7;
             this.Log.Text = "Log";
             this.Log.UseVisualStyleBackColor = true;
-            this.Log.Click += new System.EventHandler(this.oversigt_Click);
             this.Log.MouseHover += new System.EventHandler(this.bilValg);
             // 
             // redigering
             // 
+            this.redigering.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.redigering.Location = new System.Drawing.Point(207, 378);
             this.redigering.Name = "redigering";
             this.redigering.Size = new System.Drawing.Size(189, 59);
@@ -114,36 +114,18 @@
             this.redigering.UseVisualStyleBackColor = true;
             this.redigering.Click += new System.EventHandler(this.redigering_Click);
             // 
-            // forbind
-            // 
-            this.forbind.Location = new System.Drawing.Point(690, 12);
-            this.forbind.Name = "forbind";
-            this.forbind.Size = new System.Drawing.Size(98, 23);
-            this.forbind.TabIndex = 10;
-            this.forbind.Text = "Forbind til server";
-            this.forbind.UseVisualStyleBackColor = true;
-            this.forbind.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // udskriv
-            // 
-            this.udskriv.Location = new System.Drawing.Point(564, 11);
-            this.udskriv.Name = "udskriv";
-            this.udskriv.Size = new System.Drawing.Size(75, 23);
-            this.udskriv.TabIndex = 9;
-            this.udskriv.Text = "test";
-            this.udskriv.UseVisualStyleBackColor = true;
-            // 
             // Brugere
             // 
             this.Brugere.AccessibleName = "";
+            this.Brugere.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Brugere.DataSource = this.brugerBindingSource;
             this.Brugere.DisplayMember = "samletNavn";
             this.Brugere.FormattingEnabled = true;
-            this.Brugere.Location = new System.Drawing.Point(598, 53);
+            this.Brugere.Location = new System.Drawing.Point(598, 27);
             this.Brugere.Name = "Brugere";
-            this.Brugere.Size = new System.Drawing.Size(198, 316);
+            this.Brugere.Size = new System.Drawing.Size(198, 342);
             this.Brugere.TabIndex = 4;
-            this.Brugere.UseTabStops = false;
             this.Brugere.ValueMember = "brugerNr";
             this.Brugere.SelectedIndexChanged += new System.EventHandler(this.brugerValg);
             // 
@@ -151,38 +133,35 @@
             // 
             this.brugerBindingSource.DataMember = "bruger";
             this.brugerBindingSource.DataSource = this.kørselDataSet;
+            this.brugerBindingSource.Filter = "aktiv = true";
             // 
             // kørselDataSet
             // 
             this.kørselDataSet.DataSetName = "kørselDataSet";
             this.kørselDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // sletadata
-            // 
-            this.sletadata.Location = new System.Drawing.Point(483, 12);
-            this.sletadata.Name = "sletadata";
-            this.sletadata.Size = new System.Drawing.Size(75, 23);
-            this.sletadata.TabIndex = 8;
-            this.sletadata.Text = "slet";
-            this.sletadata.UseVisualStyleBackColor = true;
-            this.sletadata.Click += new System.EventHandler(this.sletadata_Click);
-            // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Location = new System.Drawing.Point(12, 54);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(580, 318);
+            this.panel1.Size = new System.Drawing.Size(580, 360);
             this.panel1.TabIndex = 9;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel1.Controls.Add(this.Aktiv);
             this.splitContainer1.Panel1.Controls.Add(this.kørteKm);
             this.splitContainer1.Panel1.Controls.Add(this.efterNavnMenu);
@@ -191,6 +170,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel2.Controls.Add(this.test);
             this.splitContainer1.Panel2.Controls.Add(this.kmKørtBilLabel);
             this.splitContainer1.Panel2.Controls.Add(this.kørtKm);
             this.splitContainer1.Panel2.Controls.Add(this.nummerpladeNavn);
@@ -199,15 +180,16 @@
             this.splitContainer1.Panel2.Controls.Add(this.bil);
             this.splitContainer1.Panel2.Controls.Add(this.kmIndtast);
             this.splitContainer1.Panel2.Controls.Add(this.kmInput);
-            this.splitContainer1.Size = new System.Drawing.Size(580, 318);
+            this.splitContainer1.Size = new System.Drawing.Size(580, 360);
             this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.TabStop = false;
             // 
             // Aktiv
             // 
+            this.Aktiv.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Aktiv.AutoSize = true;
-            this.Aktiv.Location = new System.Drawing.Point(4, 153);
+            this.Aktiv.Location = new System.Drawing.Point(4, 161);
             this.Aktiv.Name = "Aktiv";
             this.Aktiv.Size = new System.Drawing.Size(31, 13);
             this.Aktiv.TabIndex = 5;
@@ -216,18 +198,19 @@
             // 
             // kørteKm
             // 
+            this.kørteKm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.kørteKm.AutoSize = true;
-            this.kørteKm.Location = new System.Drawing.Point(4, 140);
+            this.kørteKm.Location = new System.Drawing.Point(4, 148);
             this.kørteKm.Name = "kørteKm";
             this.kørteKm.Size = new System.Drawing.Size(76, 13);
             this.kørteKm.TabIndex = 4;
             this.kørteKm.Text = "kørte kilometer";
-            this.kørteKm.Click += new System.EventHandler(this.kørteKm_Click);
             // 
             // efterNavnMenu
             // 
+            this.efterNavnMenu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.efterNavnMenu.AutoSize = true;
-            this.efterNavnMenu.Location = new System.Drawing.Point(3, 123);
+            this.efterNavnMenu.Location = new System.Drawing.Point(3, 131);
             this.efterNavnMenu.Name = "efterNavnMenu";
             this.efterNavnMenu.Size = new System.Drawing.Size(52, 13);
             this.efterNavnMenu.TabIndex = 3;
@@ -235,8 +218,9 @@
             // 
             // forNavnMenu
             // 
+            this.forNavnMenu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.forNavnMenu.AutoSize = true;
-            this.forNavnMenu.Location = new System.Drawing.Point(3, 110);
+            this.forNavnMenu.Location = new System.Drawing.Point(3, 118);
             this.forNavnMenu.Name = "forNavnMenu";
             this.forNavnMenu.Size = new System.Drawing.Size(43, 13);
             this.forNavnMenu.TabIndex = 1;
@@ -253,8 +237,9 @@
             // 
             // kmKørtBilLabel
             // 
+            this.kmKørtBilLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.kmKørtBilLabel.AutoSize = true;
-            this.kmKørtBilLabel.Location = new System.Drawing.Point(10, 166);
+            this.kmKørtBilLabel.Location = new System.Drawing.Point(10, 174);
             this.kmKørtBilLabel.Name = "kmKørtBilLabel";
             this.kmKørtBilLabel.Size = new System.Drawing.Size(80, 13);
             this.kmKørtBilLabel.TabIndex = 10;
@@ -262,8 +247,9 @@
             // 
             // kørtKm
             // 
+            this.kørtKm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.kørtKm.AutoSize = true;
-            this.kørtKm.Location = new System.Drawing.Point(9, 231);
+            this.kørtKm.Location = new System.Drawing.Point(9, 272);
             this.kørtKm.Name = "kørtKm";
             this.kørtKm.Size = new System.Drawing.Size(97, 13);
             this.kørtKm.TabIndex = 7;
@@ -271,8 +257,9 @@
             // 
             // nummerpladeNavn
             // 
+            this.nummerpladeNavn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nummerpladeNavn.AutoSize = true;
-            this.nummerpladeNavn.Location = new System.Drawing.Point(9, 153);
+            this.nummerpladeNavn.Location = new System.Drawing.Point(9, 161);
             this.nummerpladeNavn.Name = "nummerpladeNavn";
             this.nummerpladeNavn.Size = new System.Drawing.Size(72, 13);
             this.nummerpladeNavn.TabIndex = 6;
@@ -280,8 +267,9 @@
             // 
             // modelNavn
             // 
+            this.modelNavn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.modelNavn.AutoSize = true;
-            this.modelNavn.Location = new System.Drawing.Point(9, 140);
+            this.modelNavn.Location = new System.Drawing.Point(9, 148);
             this.modelNavn.Name = "modelNavn";
             this.modelNavn.Size = new System.Drawing.Size(36, 13);
             this.modelNavn.TabIndex = 5;
@@ -289,8 +277,9 @@
             // 
             // bilfabrikantNavn
             // 
+            this.bilfabrikantNavn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.bilfabrikantNavn.AutoSize = true;
-            this.bilfabrikantNavn.Location = new System.Drawing.Point(9, 127);
+            this.bilfabrikantNavn.Location = new System.Drawing.Point(9, 135);
             this.bilfabrikantNavn.Name = "bilfabrikantNavn";
             this.bilfabrikantNavn.Size = new System.Drawing.Size(41, 13);
             this.bilfabrikantNavn.TabIndex = 4;
@@ -298,13 +287,16 @@
             // 
             // bil
             // 
+            this.bil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bil.DataSource = this.bilBindingSource;
             this.bil.DisplayMember = "bilNavn";
             this.bil.FormattingEnabled = true;
             this.bil.Location = new System.Drawing.Point(201, 6);
             this.bil.Name = "bil";
-            this.bil.Size = new System.Drawing.Size(185, 303);
+            this.bil.Size = new System.Drawing.Size(185, 342);
             this.bil.TabIndex = 3;
+            this.bil.ValueMember = "bilNr";
             this.bil.SelectedIndexChanged += new System.EventHandler(this.bilValg);
             // 
             // bilBindingSource
@@ -314,11 +306,11 @@
             // 
             // kmIndtast
             // 
-            this.kmIndtast.Location = new System.Drawing.Point(112, 228);
+            this.kmIndtast.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.kmIndtast.Location = new System.Drawing.Point(112, 269);
             this.kmIndtast.Name = "kmIndtast";
             this.kmIndtast.Size = new System.Drawing.Size(83, 20);
             this.kmIndtast.TabIndex = 1;
-            this.kmIndtast.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // kmKørtTableAdapter1
             // 
@@ -328,26 +320,40 @@
             // 
             this.brugerTableAdapter.ClearBeforeFill = true;
             // 
-            // kørselDataSet2
-            // 
-            this.kørselDataSet2.DataSetName = "kørselDataSet";
-            this.kørselDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bilTableAdapter
             // 
             this.bilTableAdapter.ClearBeforeFill = true;
+            // 
+            // toggleInaktiv
+            // 
+            this.toggleInaktiv.AutoSize = true;
+            this.toggleInaktiv.Location = new System.Drawing.Point(598, 4);
+            this.toggleInaktiv.Name = "toggleInaktiv";
+            this.toggleInaktiv.Size = new System.Drawing.Size(80, 17);
+            this.toggleInaktiv.TabIndex = 10;
+            this.toggleInaktiv.Text = "checkBox1";
+            this.toggleInaktiv.UseVisualStyleBackColor = true;
+            this.toggleInaktiv.CheckedChanged += new System.EventHandler(this.toggleInaktiv_CheckedChanged_1);
+            // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(45, 24);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(35, 13);
+            this.test.TabIndex = 11;
+            this.test.Text = "label1";
             // 
             // hovedmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(808, 450);
+            this.Controls.Add(this.toggleInaktiv);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.sletadata);
             this.Controls.Add(this.Brugere);
-            this.Controls.Add(this.udskriv);
-            this.Controls.Add(this.forbind);
             this.Controls.Add(this.redigering);
             this.Controls.Add(this.Log);
             this.Controls.Add(this.opretBilBruger);
@@ -365,8 +371,8 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -376,12 +382,9 @@
         private System.Windows.Forms.Button opretBilBruger;
         private System.Windows.Forms.Button Log;
         private System.Windows.Forms.Button redigering;
-        private System.Windows.Forms.Button forbind;
         private kørselDataSetTableAdapters.kmKørtTableAdapter kmKørtTableAdapter1;
-        private System.Windows.Forms.Button udskriv;
         private kørselDataSet kørselDataSet;
         private kørselDataSetTableAdapters.brugerTableAdapter brugerTableAdapter;
-        private System.Windows.Forms.Button sletadata;
         private kørselDataSetTableAdapters.bilTableAdapter bilTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -391,7 +394,6 @@
         private System.Windows.Forms.Label efterNavnMenu;
         private System.Windows.Forms.Label kørteKm;
         private System.Windows.Forms.ListBox Brugere;
-        private kørselDataSet kørselDataSet2;
         private System.Windows.Forms.BindingSource brugerBindingSource;
         private System.Windows.Forms.ListBox bil;
         private System.Windows.Forms.BindingSource bilBindingSource;
@@ -401,6 +403,8 @@
         private System.Windows.Forms.Label kørtKm;
         private System.Windows.Forms.LinkLabel Aktiv;
         private System.Windows.Forms.Label kmKørtBilLabel;
+        private System.Windows.Forms.CheckBox toggleInaktiv;
+        private System.Windows.Forms.Label test;
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace kørselslog
 {
     public partial class indtastBruger : Form
     {
@@ -15,20 +15,15 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
         }
-
-
         private void indtastNavn_TextChanged(object sender, EventArgs e)
         {
             forNavnIndtast = indtastNavn.Text;
-
         }
 
         private void indtastEfternavn_TextChanged(object sender, EventArgs e)
         {
             efterNavnIndtast = indtastEfternavn.Text;
         }
-
-
 
         private void indsendBruger_Click(object sender, EventArgs e)
         {
@@ -38,7 +33,6 @@ namespace WindowsFormsApp1
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
-
         private void indsendBil_Click(object sender, EventArgs e)
         {
 
@@ -49,23 +43,18 @@ namespace WindowsFormsApp1
             this.DialogResult = DialogResult.No;
             this.Close();
         }
-
         private void indtastFabrikant_TextChanged(object sender, EventArgs e)
         {
             fabrikant = indtastFabrikant.Text;
-
         }
-
         private void indtastNummerplade_TextChanged(object sender, EventArgs e)
         {
             nummerplade = indtastNummerplade.Text;
-
         }
 
         private void indtastModel_TextChanged(object sender, EventArgs e)
         {
             bilModel = indtastModel.Text;
-
         }
     }
 }
