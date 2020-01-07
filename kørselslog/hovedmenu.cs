@@ -10,19 +10,18 @@ namespace kørselslog
         public hovedmenu()
         {
             InitializeComponent();
-
         }
+
         public void hovedmenu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'kørselDataSet2.bruger' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'kørselDataSet2.bil' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
-            // this.bilTableAdapter.Fill(this.kørselDataSet.bil);
-            // TODO: This line of code loads data into the 'kørselDataSet1.bruger' table. You can move, or remove it, as needed.
-            //   this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
 
+            // TODO: This line of code loads data into the 'kørselDataSet.bruger' table. You can move, or remove it, as needed.
+            this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+            // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
+            this.bilTableAdapter.Fill(this.kørselDataSet.bil);
             try
             {
+
                 this.bilTableAdapter.Fill(this.kørselDataSet.bil);
                 this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
 
@@ -34,20 +33,21 @@ namespace kørselslog
             try
             {
 
-                if (Convert.ToInt32(Brugere.SelectedValue) > 0)
+                if (Convert.ToInt32(Brugere.SelectedValue) > 1)
                 {
-                    forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue)-1]["fornavn"]);
-                    efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue)-1]["efternavn"]);
-                    kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue)-1]["kmKørt"]);
+                    forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue) - 1]["fornavn"]);
+                    efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue) - 1]["efternavn"]);
+                    kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue) - 1]["kmKørt"]);
                 }
-                if (Convert.ToInt32(Brugere.SelectedValue) == 0)
+                if (Convert.ToInt32(Brugere.SelectedValue) == 1)
                 {
                     forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["fornavn"]);
                     efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["efternavn"]);
                     kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["kmKørt"]);
                 }
+
             }
-            catch (Exception es) { MessageBox.Show(es.Message+1); }
+            catch (Exception es) { MessageBox.Show(es.Message + 1); }
         }
         private void bilValg(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace kørselslog
                     kmKørtBilLabel.Text = "Kilometer kørt:    " + Convert.ToString(this.kørselDataSet.bil.Rows[0]["kmKørt"]);
                 }
             }
-            catch (Exception es) { MessageBox.Show(es.Message+2); }
+            catch (Exception es) { MessageBox.Show(es.Message + 2); }
         }
 
         private void redigering_Click(object sender, EventArgs e)
@@ -127,82 +127,59 @@ namespace kørselslog
                     cmd.ExecuteNonQuery();
                     this.bilTableAdapter.Fill(this.kørselDataSet.bil);
                     connect.Dispose();
-                    log.nyLogBilOpret(nummerplade+' '+ fabrikant+ ' ' + model);
-                    
+                    log.nyLogBilOpret(nummerplade + ' ' + fabrikant + ' ' + model);
+
                 }
             }
         }
 
         private void KM_input_Click(object sender, EventArgs e)
         {
-
-            int insertBruger = Convert.ToInt32(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
-            int insertBil = Convert.ToInt32(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
-            SqlConnection connect = new SqlConnection(credentials);
-            SqlCommand cmd = new SqlCommand("UPDATE bruger SET kmKørt = @value WHERE brugerNr = @brugervalg;", connect);
-            SqlCommand cmd1 = new SqlCommand("UPDATE bil SET kmKørt = @value WHERE bilNr = @bilvalg;", connect);
-            cmd.Parameters.AddWithValue("@value", insertBruger);
-            cmd1.Parameters.AddWithValue("@value", insertBil);
-
-            cmd.Parameters.AddWithValue("@brugervalg", Convert.ToInt32(Brugere.SelectedIndex + 1));
-            cmd1.Parameters.AddWithValue("@bilvalg", Convert.ToInt32(bil.SelectedIndex + 1));
-            int tempbruger = Convert.ToInt32(Brugere.SelectedValue);
-            int tempbil = Convert.ToInt32(bil.SelectedIndex);
-            
-            try
+            if (bil.SelectedIndex >= 0 && Convert.ToInt32(Brugere.SelectedValue) >= 1)
             {
-                connect.Open();
-                cmd.ExecuteNonQuery();
-                cmd1.ExecuteNonQuery();
-                connect.Dispose();
 
 
+                int insertBruger = Convert.ToInt32(this.kørselDataSet.bruger.Rows[Convert.ToInt32(Brugere.SelectedValue) - 1]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
+                int insertBil = Convert.ToInt32(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]) + Convert.ToInt32(kmIndtast.Text);
+                SqlConnection connect = new SqlConnection(credentials);
+                SqlCommand cmd = new SqlCommand("UPDATE bruger SET kmKørt = @value WHERE brugerNr = @brugervalg;", connect);
+                SqlCommand cmd1 = new SqlCommand("UPDATE bil SET kmKørt = @value WHERE bilNr = @bilvalg;", connect);
+                cmd.Parameters.AddWithValue("@value", insertBruger);
+                cmd1.Parameters.AddWithValue("@value", insertBil);
 
+                cmd.Parameters.AddWithValue("@brugervalg", Convert.ToInt32(Brugere.SelectedValue));
+                cmd1.Parameters.AddWithValue("@bilvalg", Convert.ToInt32(bil.SelectedIndex + 1));
+                int tempbruger = Convert.ToInt32(Brugere.SelectedValue);
+                int tempbil = Convert.ToInt32(bil.SelectedIndex);
 
+                bilValg(sender, e);
 
-
-                test.Text = Convert.ToString(Brugere.SelectedValue);
-
-
-                //if (bil.SelectedIndex == 0)
-                //{
-                //    bilfabrikantNavn.Text = "Mærke:              " + Convert.ToString(this.kørselDataSet.bil.Rows[0]["mærke"]);
-                //    modelNavn.Text = "Model:                " + Convert.ToString(this.kørselDataSet.bil.Rows[0]["model"]);
-                //    nummerpladeNavn.Text = "Nummerplade:    " + Convert.ToString(this.kørselDataSet.bil.Rows[0]["nummerplade"]);
-                //    kmKørtBilLabel.Text = "Kilometer kørt:    " + Convert.ToString(this.kørselDataSet.bil.Rows[0]["kmKørt"]);
-
-
-                //}
-
-
-                if (Convert.ToInt32(Brugere.SelectedValue) == 0)
+                try
                 {
-                    forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["fornavn"]);
-                    efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["efternavn"]);
-                    kørteKm.Text = "Kørte KM: " + Convert.ToString(this.kørselDataSet.bruger.Rows[0]["kmKørt"]);
+                    connect.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd1.ExecuteNonQuery();
+                    connect.Dispose();
+
+                    log.nyLogKmKørt(Convert.ToInt32(kmIndtast.Text), Convert.ToInt32(bil.SelectedIndex + 1), Convert.ToInt32(Brugere.SelectedValue));
+
 
                 }
 
-                log.nyLogKmKørt(Convert.ToInt32(kmIndtast.Text));
-                
+                catch (Exception es) { MessageBox.Show(es.Message + 4); }
+
+
+                hovedmenu_Load(sender, e);
+
+
+                bil.SelectedIndex = tempbil;
+                Brugere.SelectedValue = tempbruger;
 
             }
-
-            catch (Exception es) { MessageBox.Show(es.Message+4); }
-
-
-            MessageBox.Show(Convert.ToString(Brugere.SelectedValue));
-
-
-
-           // this.bilTableAdapter.Fill(this.kørselDataSet.bil);
-            this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
-            
-            bil.SelectedIndex = tempbil;
-            Brugere.SelectedValue = tempbruger;
-
-
-            // hovedmenu_Load(sender, e);
+            else
+            {
+                MessageBox.Show("Der mangler at blive valgt endten en bil eller en bruger");
+            }
 
 
         }
@@ -212,6 +189,7 @@ namespace kørselslog
 
         private void toggleInaktiv_CheckedChanged_1(object sender, EventArgs e)
         {
+
             if (toggleInaktiv.Checked == true)
             {
                 toggleInaktiv.Checked = true;
@@ -220,6 +198,26 @@ namespace kørselslog
 
             }
             else this.brugerBindingSource.Filter = "aktiv = 1";
+
+        }
+
+       
+
+        private void bilBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Log_Click_1(object sender, EventArgs e)
+        {
+            using (var form = new oversigt())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.No)
+                {
+                    hovedmenu_Load(sender, e);
+                }
+            }
         }
     }
 }

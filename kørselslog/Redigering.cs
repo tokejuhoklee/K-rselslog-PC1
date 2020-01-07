@@ -16,6 +16,13 @@ namespace kørselslog
     public partial class Redigering : Form
     {
         String credentials = "server=TAK;Initial Catalog=kørsel;User ID=bruger;Password = stop;";
+        String gammelMærke ;
+        String gammelModel ;
+        String gammelNummerplade ;
+        String gammelKørteKm ;
+        String gammelNavn;
+        String gammelEfternavn;
+        String gammelAktivitet;
 
         public Redigering()
         {
@@ -23,12 +30,23 @@ namespace kørselslog
         }
         private void Redigering_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
+            this.bilTableAdapter.Fill(this.kørselDataSet.bil);
+            // TODO: This line of code loads data into the 'kørselDataSet.bruger' table. You can move, or remove it, as needed.
+            this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
             try
             {
                 // TODO: This line of code loads data into the 'kørselDataSet.bil' table. You can move, or remove it, as needed.
                 this.bilTableAdapter.Fill(this.kørselDataSet.bil);
                 // TODO: This line of code loads data into the 'kørselDataSet.bruger' table. You can move, or remove it, as needed.
                 this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
+               
+                 gammelMærke = Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["mærke"]);
+                 gammelModel = Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["model"]);
+                 gammelNummerplade = Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["nummerplade"]);
+                 gammelKørteKm = Convert.ToString(this.kørselDataSet.bil.Rows[bil.SelectedIndex]["kmKørt"]);
+                 gammelNavn = Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["fornavn"]);
+                 gammelEfternavn =  Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["efternavn"]);
             }
             catch (Exception es) { MessageBox.Show(es.Message); }
         }
@@ -77,6 +95,8 @@ namespace kørselslog
         }
         private void godkendBruger_Click(object sender, EventArgs e)
         {
+            string tilLog="";
+
             SqlConnection connect = new SqlConnection(credentials);
             SqlCommand fornavnEdit = new SqlCommand("UPDATE bruger SET fornavn= @value WHERE brugerNr = @brugervalg;", connect);
             SqlCommand efternavnEdit = new SqlCommand("UPDATE bruger SET efternavn = @value WHERE brugerNr = @brugervalg;", connect);
@@ -89,14 +109,33 @@ namespace kørselslog
             fornavnEdit.ExecuteNonQuery();
             efternavnEdit.ExecuteNonQuery();
             connect.Dispose();
+
+            if (gammelNavn != forNavnRedigering.Text)
+            {
+                tilLog = tilLog + gammelNavn + ", er blevet redigeret til: " + forNavnRedigering.Text + ",  ";
+            }
+            if (gammelEfternavn != redigeringEfternavn.Text)
+            {
+                tilLog = tilLog + gammelEfternavn + ", er blevet redigeret til: " + redigeringEfternavn.Text + ",   ";
+            }
+            tilLog = tilLog + "på bruger nr:" + Convert.ToInt32(Brugere.SelectedIndex + 1);
+
+         
+
+
             this.brugerTableAdapter.Fill(this.kørselDataSet.bruger);
             forNavnMenu.Text = "Navn:        " + Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["fornavn"]);
             efterNavnMenu.Text = "Efternavn: " + Convert.ToString(this.kørselDataSet.bruger.Rows[Brugere.SelectedIndex]["efternavn"]);
-            
+            brugerValg(sender, e);
+            log.nyLogRedigering(tilLog);
+            this.DialogResult = DialogResult.No;
+
         }
 
         private void godkendBil_Click(object sender, EventArgs e)
         {
+            string tilLog="";
+            
             SqlConnection connect = new SqlConnection(credentials);
             SqlCommand nyMærke = new SqlCommand("UPDATE bil SET mærke = @value WHERE bilNr = @bilvalg;", connect);
             SqlCommand nyModel = new SqlCommand("UPDATE bil SET model = @value WHERE bilNr= @bilvalg;", connect);
@@ -117,8 +156,31 @@ namespace kørselslog
             nyNummerplade.ExecuteNonQuery();
             nyKørteKm.ExecuteNonQuery();
             connect.Dispose();
+
+
+                if (gammelMærke != redigeringMærke.Text)
+                {
+                    tilLog = tilLog + gammelMærke+", er blevet redigeret til: "+ redigeringMærke.Text+",    ";
+                }
+                if (gammelModel != redigeringModel.Text)
+                {
+                    tilLog = tilLog + gammelModel+", er blevet redigeret til: " + redigeringMærke.Text + ", ";
+                }
+                if (gammelNummerplade != redigeringNummerplade.Text)
+                {
+                    tilLog = tilLog + gammelNummerplade+", er blevet redigeret til: " + redigeringMærke.Text + ",   ";
+                }
+                if (gammelKørteKm != redigeringKørteKm.Text)
+                {
+                    tilLog = tilLog + gammelKørteKm+", er blevet redigeret til: " + redigeringMærke.Text + ",   ";
+                }
+            tilLog = tilLog + "på bil nr:" + Convert.ToInt32(bil.SelectedIndex + 1);
+
+
             this.bilTableAdapter.Fill(this.kørselDataSet.bil);
             bilValg(sender, e);
+            log.nyLogRedigering(tilLog);
+            this.DialogResult = DialogResult.No;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -137,6 +199,7 @@ namespace kørselslog
             connect.Open();
             aktivBruger.ExecuteNonQuery();
             connect.Dispose();
+
 
         }
     }

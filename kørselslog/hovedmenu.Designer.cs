@@ -35,7 +35,7 @@
             this.redigering = new System.Windows.Forms.Button();
             this.Brugere = new System.Windows.Forms.ListBox();
             this.brugerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kørselDataSet = new kørselslog.kørselDataSet();
+            this.kørselDataSet = new WindowsFormsApp1.kørselDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Aktiv = new System.Windows.Forms.LinkLabel();
@@ -43,6 +43,7 @@
             this.efterNavnMenu = new System.Windows.Forms.Label();
             this.forNavnMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.test = new System.Windows.Forms.Label();
             this.kmKørtBilLabel = new System.Windows.Forms.Label();
             this.kørtKm = new System.Windows.Forms.Label();
             this.nummerpladeNavn = new System.Windows.Forms.Label();
@@ -51,11 +52,9 @@
             this.bil = new System.Windows.Forms.ListBox();
             this.bilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kmIndtast = new System.Windows.Forms.TextBox();
-            this.kmKørtTableAdapter1 = new kørselslog.kørselDataSetTableAdapters.kmKørtTableAdapter();
-            this.brugerTableAdapter = new kørselslog.kørselDataSetTableAdapters.brugerTableAdapter();
-            this.bilTableAdapter = new kørselslog.kørselDataSetTableAdapters.bilTableAdapter();
             this.toggleInaktiv = new System.Windows.Forms.CheckBox();
-            this.test = new System.Windows.Forms.Label();
+            this.bilTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.bilTableAdapter();
+            this.brugerTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.brugerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -101,6 +100,7 @@
             this.Log.TabIndex = 7;
             this.Log.Text = "Log";
             this.Log.UseVisualStyleBackColor = true;
+            this.Log.Click += new System.EventHandler(this.Log_Click_1);
             this.Log.MouseHover += new System.EventHandler(this.bilValg);
             // 
             // redigering
@@ -128,6 +128,7 @@
             this.Brugere.TabIndex = 4;
             this.Brugere.ValueMember = "brugerNr";
             this.Brugere.SelectedIndexChanged += new System.EventHandler(this.brugerValg);
+            this.Brugere.SelectedValueChanged += new System.EventHandler(this.brugerValg);
             // 
             // brugerBindingSource
             // 
@@ -235,6 +236,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(45, 24);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(35, 13);
+            this.test.TabIndex = 11;
+            this.test.Text = "label1";
+            // 
             // kmKørtBilLabel
             // 
             this.kmKørtBilLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -303,6 +313,7 @@
             // 
             this.bilBindingSource.DataMember = "bil";
             this.bilBindingSource.DataSource = this.kørselDataSet;
+            this.bilBindingSource.CurrentChanged += new System.EventHandler(this.bilBindingSource_CurrentChanged);
             // 
             // kmIndtast
             // 
@@ -311,18 +322,6 @@
             this.kmIndtast.Name = "kmIndtast";
             this.kmIndtast.Size = new System.Drawing.Size(83, 20);
             this.kmIndtast.TabIndex = 1;
-            // 
-            // kmKørtTableAdapter1
-            // 
-            this.kmKørtTableAdapter1.ClearBeforeFill = true;
-            // 
-            // brugerTableAdapter
-            // 
-            this.brugerTableAdapter.ClearBeforeFill = true;
-            // 
-            // bilTableAdapter
-            // 
-            this.bilTableAdapter.ClearBeforeFill = true;
             // 
             // toggleInaktiv
             // 
@@ -335,14 +334,13 @@
             this.toggleInaktiv.UseVisualStyleBackColor = true;
             this.toggleInaktiv.CheckedChanged += new System.EventHandler(this.toggleInaktiv_CheckedChanged_1);
             // 
-            // test
+            // bilTableAdapter
             // 
-            this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(45, 24);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(35, 13);
-            this.test.TabIndex = 11;
-            this.test.Text = "label1";
+            this.bilTableAdapter.ClearBeforeFill = true;
+            // 
+            // brugerTableAdapter
+            // 
+            this.brugerTableAdapter.ClearBeforeFill = true;
             // 
             // hovedmenu
             // 
@@ -382,10 +380,6 @@
         private System.Windows.Forms.Button opretBilBruger;
         private System.Windows.Forms.Button Log;
         private System.Windows.Forms.Button redigering;
-        private kørselDataSetTableAdapters.kmKørtTableAdapter kmKørtTableAdapter1;
-        private kørselDataSet kørselDataSet;
-        private kørselDataSetTableAdapters.brugerTableAdapter brugerTableAdapter;
-        private kørselDataSetTableAdapters.bilTableAdapter bilTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -405,6 +399,9 @@
         private System.Windows.Forms.Label kmKørtBilLabel;
         private System.Windows.Forms.CheckBox toggleInaktiv;
         private System.Windows.Forms.Label test;
+        private WindowsFormsApp1.kørselDataSet kørselDataSet;
+        private WindowsFormsApp1.kørselDataSetTableAdapters.bilTableAdapter bilTableAdapter;
+        private WindowsFormsApp1.kørselDataSetTableAdapters.brugerTableAdapter brugerTableAdapter;
     }
 }
 

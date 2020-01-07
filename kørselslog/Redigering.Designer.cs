@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.bil = new System.Windows.Forms.ListBox();
             this.bilBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kørselDataSet = new kørselslog.kørselDataSet();
             this.brugerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Brugere = new System.Windows.Forms.ListBox();
-            this.brugerTableAdapter = new kørselslog.kørselDataSetTableAdapters.brugerTableAdapter();
-            this.bilTableAdapter = new kørselslog.kørselDataSetTableAdapters.bilTableAdapter();
             this.Aktiv = new System.Windows.Forms.LinkLabel();
             this.kørteKm = new System.Windows.Forms.Label();
             this.efterNavnMenu = new System.Windows.Forms.Label();
@@ -55,16 +52,22 @@
             this.godkendBruger = new System.Windows.Forms.Button();
             this.godkendBil = new System.Windows.Forms.Button();
             this.redigeringNavn = new System.Windows.Forms.Label();
-            this.kmKørtTableAdapter1 = new kørselslog.kørselDataSetTableAdapters.kmKørtTableAdapter();
             this.redigeringKørteKmBruger = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.kørselDataSet = new WindowsFormsApp1.kørselDataSet();
+            this.brugerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.brugerTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.brugerTableAdapter();
+            this.bilBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bilTableAdapter = new WindowsFormsApp1.kørselDataSetTableAdapters.bilTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // bil
@@ -72,7 +75,7 @@
             this.bil.AccessibleName = "";
             this.bil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.bil.DataSource = this.bilBindingSource;
+            this.bil.DataSource = this.bilBindingSource1;
             this.bil.DisplayMember = "bilNavn";
             this.bil.FormattingEnabled = true;
             this.bil.Location = new System.Drawing.Point(5, 10);
@@ -82,27 +85,15 @@
             this.bil.ValueMember = "bilNr";
             this.bil.SelectedIndexChanged += new System.EventHandler(this.bilValg);
             // 
-            // bilBindingSource
-            // 
-            this.bilBindingSource.DataMember = "bil";
-            this.bilBindingSource.DataSource = this.kørselDataSet;
-            // 
-            // kørselDataSet
-            // 
-            this.kørselDataSet.DataSetName = "kørselDataSet";
-            this.kørselDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // brugerBindingSource
             // 
-            this.brugerBindingSource.DataMember = "bruger";
-            this.brugerBindingSource.DataSource = this.kørselDataSet;
             this.brugerBindingSource.Sort = "";
             // 
             // Brugere
             // 
             this.Brugere.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.Brugere.DataSource = this.brugerBindingSource;
+            this.Brugere.DataSource = this.brugerBindingSource1;
             this.Brugere.DisplayMember = "samletNavn";
             this.Brugere.FormattingEnabled = true;
             this.Brugere.Location = new System.Drawing.Point(3, 10);
@@ -111,14 +102,6 @@
             this.Brugere.TabIndex = 5;
             this.Brugere.ValueMember = "brugerNr";
             this.Brugere.SelectedIndexChanged += new System.EventHandler(this.brugerValg);
-            // 
-            // brugerTableAdapter
-            // 
-            this.brugerTableAdapter.ClearBeforeFill = true;
-            // 
-            // bilTableAdapter
-            // 
-            this.bilTableAdapter.ClearBeforeFill = true;
             // 
             // Aktiv
             // 
@@ -306,10 +289,6 @@
             this.redigeringNavn.TabIndex = 26;
             this.redigeringNavn.Text = "label1";
             // 
-            // kmKørtTableAdapter1
-            // 
-            this.kmKørtTableAdapter1.ClearBeforeFill = true;
-            // 
             // redigeringKørteKmBruger
             // 
             this.redigeringKørteKmBruger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -361,6 +340,29 @@
             this.splitContainer1.SplitterDistance = 381;
             this.splitContainer1.TabIndex = 29;
             // 
+            // kørselDataSet
+            // 
+            this.kørselDataSet.DataSetName = "kørselDataSet";
+            this.kørselDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // brugerBindingSource1
+            // 
+            this.brugerBindingSource1.DataMember = "bruger";
+            this.brugerBindingSource1.DataSource = this.kørselDataSet;
+            // 
+            // brugerTableAdapter
+            // 
+            this.brugerTableAdapter.ClearBeforeFill = true;
+            // 
+            // bilBindingSource1
+            // 
+            this.bilBindingSource1.DataMember = "bil";
+            this.bilBindingSource1.DataSource = this.kørselDataSet;
+            // 
+            // bilTableAdapter
+            // 
+            this.bilTableAdapter.ClearBeforeFill = true;
+            // 
             // Redigering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,7 +374,6 @@
             this.Text = "Redigering";
             this.Load += new System.EventHandler(this.Redigering_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -380,6 +381,9 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.kørselDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brugerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bilBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,11 +392,8 @@
 
         private System.Windows.Forms.ListBox bil;
         private System.Windows.Forms.ListBox Brugere;
-        private kørselDataSet kørselDataSet;
         private System.Windows.Forms.BindingSource brugerBindingSource;
-        private kørselDataSetTableAdapters.brugerTableAdapter brugerTableAdapter;
         private System.Windows.Forms.BindingSource bilBindingSource;
-        private kørselDataSetTableAdapters.bilTableAdapter bilTableAdapter;
         private System.Windows.Forms.LinkLabel Aktiv;
         private System.Windows.Forms.Label kørteKm;
         private System.Windows.Forms.Label efterNavnMenu;
@@ -412,8 +413,12 @@
         private System.Windows.Forms.Button godkendBil;
         private System.Windows.Forms.Label redigeringNavn;
         private System.Windows.Forms.CheckBox aktivBox;
-        private kørselDataSetTableAdapters.kmKørtTableAdapter kmKørtTableAdapter1;
         private System.Windows.Forms.TextBox redigeringKørteKmBruger;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private WindowsFormsApp1.kørselDataSet kørselDataSet;
+        private System.Windows.Forms.BindingSource brugerBindingSource1;
+        private WindowsFormsApp1.kørselDataSetTableAdapters.brugerTableAdapter brugerTableAdapter;
+        private System.Windows.Forms.BindingSource bilBindingSource1;
+        private WindowsFormsApp1.kørselDataSetTableAdapters.bilTableAdapter bilTableAdapter;
     }
 }

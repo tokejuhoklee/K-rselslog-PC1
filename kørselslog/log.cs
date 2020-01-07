@@ -35,13 +35,13 @@ namespace kørselslog
             connect.Dispose();
         }
 
-        public static void nyLogKmKørt(int kmIndtast)
+        public static void nyLogKmKørt(int kmIndtast,int bruger,int bil)
         {
             SqlConnection connect = new SqlConnection(credentials);
             DateTime dateTimeVariable = DateTime.Now;
             SqlCommand cmd = new SqlCommand("INSERT INTO log (kmKørtBruger,kmKørtBil,opretForbindelse) VALUES (@kmKørtBruger,@kmKørtBil,@tid)", connect);
-            cmd.Parameters.AddWithValue("@kmKørtBruger", kmIndtast);
-            cmd.Parameters.AddWithValue("@kmKørtBil", kmIndtast);
+            cmd.Parameters.AddWithValue("@kmKørtBruger", kmIndtast + " km, bruger Nr.:" + bruger);
+            cmd.Parameters.AddWithValue("@kmKørtBil", kmIndtast + " km, bil Nr.:" + bil);
             cmd.Parameters.AddWithValue("@tid", dateTimeVariable);
             connect.Open();
             cmd.ExecuteNonQuery();
@@ -50,19 +50,19 @@ namespace kørselslog
 
 
 
-        public void nyLogRedigering()
+        public static void nyLogRedigering(string handling)
         {
+       
+
             SqlConnection connect = new SqlConnection(credentials);
             DateTime dateTimeVariable = DateTime.Now;
-            SqlCommand cmd = new SqlCommand("INSERT INTO log (kmKørtBruger,kmKørtBil,opretBruger,opretBil,opretForbindelse) VALUES (kmKørtBruger,kmKørtBil,opretBruger,opretBil,@tid)", connect);
-            cmd.Parameters.AddWithValue("@kmKørtBruger", dateTimeVariable);
-            cmd.Parameters.AddWithValue("@kmKørtBil", dateTimeVariable);
-            cmd.Parameters.AddWithValue("@opretBruger", dateTimeVariable);
-            cmd.Parameters.AddWithValue("@opretBil", dateTimeVariable);
+            SqlCommand cmd = new SqlCommand("INSERT INTO log (redigering, opretForbindelse) VALUES (@redigering,@tid)", connect);
+            cmd.Parameters.AddWithValue("@redigering", handling);
             cmd.Parameters.AddWithValue("@tid", dateTimeVariable);
             connect.Open();
             cmd.ExecuteNonQuery();
             connect.Dispose();
         }
+
     }
 }
